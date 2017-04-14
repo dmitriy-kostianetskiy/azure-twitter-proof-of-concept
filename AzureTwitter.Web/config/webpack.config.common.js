@@ -110,10 +110,11 @@ module.exports = {
         ],
 		extensions: ['.js', '.json', '.ts'],
 		alias: {
-			// components: path.join(appPath, 'components'),
+			//components: path.join(appPath, 'components'),
 			// actions: path.join(appPath, 'actions'),
-			// definitions: path.join(appPath, 'definitions'),
-			// models: path.join(appPath, 'models'),
+			//definitions: path.join(appPath, 'definitions'),
+            //models: path.join(appPath, 'models'),
+			//services: path.join(appPath, 'services')
 			// reducers: path.join(appPath, 'reducers'),
 			// stores: path.join(appPath, 'stores'),
 		}

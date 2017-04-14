@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using Microsoft.AspNetCore.Hosting;
 
-namespace AzureTwitter.Web
+namespace AzureTwitter.Api
 {
     public class Program
     {

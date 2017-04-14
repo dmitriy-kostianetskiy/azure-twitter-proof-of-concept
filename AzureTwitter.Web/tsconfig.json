@@ -1,21 +1,21 @@
 ﻿{
-  "compilerOptions": {
-    "module": "commonjs",
-    "target": "es5",
-    "sourceMap": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "moduleResolution": "node",
-    "types": [
-      "core-js",
-      "zone.js",
-      "node" 
-    ],
-    "lib": [
-      "es2016",
-      "dom"
-    ]
-  },
+	"compilerOptions": {
+		"module": "commonjs",
+		"target": "es5",
+		"sourceMap": true,
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"moduleResolution": "node",
+		"types": [
+			"core-js",
+			"zone.js",
+			"node"
+		],
+		"lib": [
+			"es2016",
+			"dom"
+		]
+	},
 	"exclude": [
 		"node_modules",
 		"wwwroot"

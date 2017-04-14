@@ -1,4 +1,5 @@
 ﻿<md-toolbar color="primary">
 Twitter Azure App
 </md-toolbar>
-<h1>Hello World!</h1>
+
+<tweet *ngFor="let tweet of tweets" [tweet]="tweet"></tweet>

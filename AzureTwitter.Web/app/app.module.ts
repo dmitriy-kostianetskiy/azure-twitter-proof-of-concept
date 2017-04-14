@@ -2,6 +2,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { MaterialModule } from '@angular/material';
 import components from './components';
+import services from './services';
 
 @NgModule({
     imports:
@@ -12,7 +13,10 @@ import components from './components';
     declarations:
     [
 		...components.declarations
-    ],
+	],
+	providers: [
+		...services
+	],
     bootstrap: [components.bootstrap]
 })
-export class AppModule { }
+export default  class AppModule { }
