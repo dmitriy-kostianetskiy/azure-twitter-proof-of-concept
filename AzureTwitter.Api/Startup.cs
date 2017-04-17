@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using AzureTwitter.Api.Hubs;
+using AzureTwitter.Api.Utils;
 using AzureTwitter.Storage.Interfaces.Repositories;
 using AzureTwitter.Storage.Repositories;
 using Microsoft.AspNetCore.Builder;
@@ -9,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 
 namespace AzureTwitter.Api
 {
@@ -38,11 +37,20 @@ namespace AzureTwitter.Api
                         .AllowCredentials());
             });
 
+
             // Add framework services.
             services.AddMvc();
             services.AddSignalR();
 
             services.AddTransient<ITweetsRepository, TweetsRepository>();
+
+            var settings = new JsonSerializerSettings
+            {
+                ContractResolver = new SignalRContractResolver()
+            };
+
+            var serializer = JsonSerializer.Create(settings);
+            services.Add(new ServiceDescriptor(typeof(JsonSerializer), provider => serializer, ServiceLifetime.Transient));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

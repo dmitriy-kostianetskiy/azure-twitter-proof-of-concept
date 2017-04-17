@@ -2,7 +2,7 @@
 
 namespace AzureTwitter.Api.Hubs
 {
-    public class TweetsHub: Hub
+    public class TweetHub: Hub
     {
     }
 }

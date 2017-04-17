@@ -5,15 +5,15 @@ VisualStudioVersion = 15.0.26228.9
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureTwitter.Web", "AzureTwitter.Web\AzureTwitter.Web.csproj", "{40A3AB25-1504-4951-A6FB-3471A9DAD24D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureTwitter.Api", "AzureTwitter.Api\AzureTwitter.Api.csproj", "{387A04AD-79A5-441B-8A3D-949355E30730}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureTwitter.Storage", "AzureTwitter.Storage\AzureTwitter.Storage.csproj", "{4FD0CB75-0239-495E-956C-8168A7358EF8}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureTwitter.Storage.Interfaces", "AzureTwitter.Storage.Interfaces\AzureTwitter.Storage.Interfaces.csproj", "{5859EFDC-DF0F-47DB-BA52-69DD86119552}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureTwitter.Storage.Models", "AzureTwitter.Storage.Models\AzureTwitter.Storage.Models.csproj", "{BDDED552-157A-4AE0-A053-776072F01A4E}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Storage", "Storage", "{5331CBE0-8058-48A2-A947-9897D85E85C6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureTwitter.Api", "AzureTwitter.Api\AzureTwitter.Api.csproj", "{467276B1-C558-4CC4-BF49-51AE41C11A27}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureTwitter.Storage.Interfaces", "AzureTwitter.Storage.Interfaces\AzureTwitter.Storage.Interfaces.csproj", "{631539CB-20E7-4758-861D-136A5235DC3E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureTwitter.Storage", "AzureTwitter.Storage\AzureTwitter.Storage.csproj", "{6862DB95-3E9B-4D23-A6E4-F0F3D7A663AD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureTwitter.Storage.Models", "AzureTwitter.Storage.Models\AzureTwitter.Storage.Models.csproj", "{E822DADC-62CE-4005-9877-DA96435DC0F8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,29 +25,29 @@ Global
 		{40A3AB25-1504-4951-A6FB-3471A9DAD24D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40A3AB25-1504-4951-A6FB-3471A9DAD24D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40A3AB25-1504-4951-A6FB-3471A9DAD24D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{387A04AD-79A5-441B-8A3D-949355E30730}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{387A04AD-79A5-441B-8A3D-949355E30730}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{387A04AD-79A5-441B-8A3D-949355E30730}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{387A04AD-79A5-441B-8A3D-949355E30730}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4FD0CB75-0239-495E-956C-8168A7358EF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4FD0CB75-0239-495E-956C-8168A7358EF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4FD0CB75-0239-495E-956C-8168A7358EF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4FD0CB75-0239-495E-956C-8168A7358EF8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5859EFDC-DF0F-47DB-BA52-69DD86119552}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5859EFDC-DF0F-47DB-BA52-69DD86119552}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5859EFDC-DF0F-47DB-BA52-69DD86119552}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5859EFDC-DF0F-47DB-BA52-69DD86119552}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BDDED552-157A-4AE0-A053-776072F01A4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BDDED552-157A-4AE0-A053-776072F01A4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BDDED552-157A-4AE0-A053-776072F01A4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BDDED552-157A-4AE0-A053-776072F01A4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{467276B1-C558-4CC4-BF49-51AE41C11A27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{467276B1-C558-4CC4-BF49-51AE41C11A27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{467276B1-C558-4CC4-BF49-51AE41C11A27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{467276B1-C558-4CC4-BF49-51AE41C11A27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{631539CB-20E7-4758-861D-136A5235DC3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{631539CB-20E7-4758-861D-136A5235DC3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{631539CB-20E7-4758-861D-136A5235DC3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{631539CB-20E7-4758-861D-136A5235DC3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6862DB95-3E9B-4D23-A6E4-F0F3D7A663AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6862DB95-3E9B-4D23-A6E4-F0F3D7A663AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6862DB95-3E9B-4D23-A6E4-F0F3D7A663AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6862DB95-3E9B-4D23-A6E4-F0F3D7A663AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E822DADC-62CE-4005-9877-DA96435DC0F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E822DADC-62CE-4005-9877-DA96435DC0F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E822DADC-62CE-4005-9877-DA96435DC0F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E822DADC-62CE-4005-9877-DA96435DC0F8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{4FD0CB75-0239-495E-956C-8168A7358EF8} = {5331CBE0-8058-48A2-A947-9897D85E85C6}
-		{5859EFDC-DF0F-47DB-BA52-69DD86119552} = {5331CBE0-8058-48A2-A947-9897D85E85C6}
-		{BDDED552-157A-4AE0-A053-776072F01A4E} = {5331CBE0-8058-48A2-A947-9897D85E85C6}
+		{631539CB-20E7-4758-861D-136A5235DC3E} = {5331CBE0-8058-48A2-A947-9897D85E85C6}
+		{6862DB95-3E9B-4D23-A6E4-F0F3D7A663AD} = {5331CBE0-8058-48A2-A947-9897D85E85C6}
+		{E822DADC-62CE-4005-9877-DA96435DC0F8} = {5331CBE0-8058-48A2-A947-9897D85E85C6}
 	EndGlobalSection
 EndGlobal

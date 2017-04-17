@@ -19,6 +19,8 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.0" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AzureTwitter.Storage.Interfaces\AzureTwitter.Storage.Interfaces.csproj" />
+    <ProjectReference Include="..\AzureTwitter.Storage.Models\AzureTwitter.Storage.Models.csproj" />
     <ProjectReference Include="..\AzureTwitter.Storage\AzureTwitter.Storage.csproj" />
   </ItemGroup>
 

@@ -6,10 +6,12 @@
 		"emitDecoratorMetadata": true,
 		"experimentalDecorators": true,
 		"moduleResolution": "node",
+		"typeRoots": [ "app/typings" ],
 		"types": [
 			"core-js",
 			"zone.js",
-			"node"
+			"node",
+			"const"
 		],
 		"lib": [
 			"es2016",
