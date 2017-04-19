@@ -14,13 +14,13 @@
     <PackageReference Include="Microsoft.AspNetCore.SignalR.Server" Version="0.2.0-preview2-22683" />
     <PackageReference Include="Microsoft.AspNetCore.WebSockets" Version="1.0.1" />
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="1.1.1" />
+    <PackageReference Include="StackExchange.Redis" Version="1.2.1" />
   </ItemGroup>
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AzureTwitter.Storage.Interfaces\AzureTwitter.Storage.Interfaces.csproj" />
-    <ProjectReference Include="..\AzureTwitter.Storage.Models\AzureTwitter.Storage.Models.csproj" />
     <ProjectReference Include="..\AzureTwitter.Storage\AzureTwitter.Storage.csproj" />
   </ItemGroup>
 

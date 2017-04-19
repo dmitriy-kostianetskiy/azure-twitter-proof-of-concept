@@ -1,4 +1,4 @@
-﻿namespace AzureTwitter.Storage.Models
+﻿namespace AzureTwitter.Models
 {
 	public class TweetModel
 	{
