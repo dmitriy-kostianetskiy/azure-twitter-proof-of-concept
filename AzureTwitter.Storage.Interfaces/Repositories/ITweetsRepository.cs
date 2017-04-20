@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using AzureTwitter.Storage.Models;
+using AzureTwitter.Models;
 
 namespace AzureTwitter.Storage.Interfaces.Repositories
 {

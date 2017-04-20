@@ -16,8 +16,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AzureTwitter.Models\AzureTwitter.Models.csproj" />
-    <ProjectReference Include="..\AzureTwitter.Storage.Interfaces\AzureTwitter.Storage.Interfaces.csproj" />
-    <ProjectReference Include="..\AzureTwitter.Storage\AzureTwitter.Storage.csproj" />
   </ItemGroup>
 
 </Project>
