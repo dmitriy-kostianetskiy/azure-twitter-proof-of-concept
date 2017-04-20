@@ -7,21 +7,7 @@ namespace AzureTwitter.Storage.Repositories
 {
     public class TweetsRepository: ITweetsRepository
     {
-		private readonly TweetModel[] _tweets = {
-
-				new TweetModel
-				{
-					Id = "1",
-					Content = "Test",
-					User = "Putin"
-				},
-				new TweetModel
-				{
-					Id = "2",
-					Content = "Test 1",
-					User = "Trump"
-				},
-		};
+		private readonly TweetModel[] _tweets = { };
 
 		public IEnumerable<TweetModel> Get()
 		{

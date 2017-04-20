@@ -42,7 +42,8 @@ namespace AzureTwitter.TwitterFeedHandler.Providers
 			{
 				Id = tweet.ID.ToString(CultureInfo.InvariantCulture),
 				User = tweet.User.Name,
-				Content = tweet.Text
+				Content = tweet.Text,
+				CreatedAt = tweet.CreatedAt
 			};
 		}
 	}

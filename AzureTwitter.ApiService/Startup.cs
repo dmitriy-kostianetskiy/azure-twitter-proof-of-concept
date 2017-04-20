@@ -60,8 +60,6 @@ namespace AzureTwitter.ApiService
 				var conenction = hubConfiguration.Resolver.Resolve<IConnectionManager>();
 				conenction.GetHubContext<TweetHub>().Clients.All.newTweet(x);
 			});
-
-			//messageBus.Send(new TweetModel());
 		}
 	}
 }
