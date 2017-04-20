@@ -21,8 +21,8 @@ export default class AppComponent {
 			let isUpdated = false;
 
 			if (!this.tweetsByUser.has(tweet.user)) {
-				this.tweetsByUser.set(tweet.user, tweet);
 				isUpdated = true;
+				this.tweetsByUser.set(tweet.user, tweet);
 			} else {
 				const oldTweet = this.tweetsByUser.get(tweet.user);
 
@@ -30,8 +30,8 @@ export default class AppComponent {
 				const newDate = new Date(tweet.createdAt);
 
 				if (oldDate.getTime() < newDate.getTime()) {
-					this.tweetsByUser.set(tweet.user, tweet);
 					isUpdated = true;
+					this.tweetsByUser.set(tweet.user, tweet);
 				}
 			}
 

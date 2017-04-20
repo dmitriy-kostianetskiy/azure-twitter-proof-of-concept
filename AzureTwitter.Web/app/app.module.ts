@@ -9,7 +9,7 @@ import hubs from './hubs';
 @NgModule({
     imports:
     [
-        BrowserModule,
+		BrowserModule,
 		MaterialModule
     ],
     declarations:
