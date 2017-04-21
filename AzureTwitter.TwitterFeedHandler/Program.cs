@@ -3,8 +3,12 @@ using System.Diagnostics;
 using System.Fabric;
 using System.Threading;
 using System.Threading.Tasks;
+using Autofac;
+using AzureTwitter.Configuration;
+using AzureTwitter.MessageBus.Interfaces;
+using AzureTwitter.TwitterFeedHandler.Dependencies;
+using AzureTwitter.TwitterFeedHandler.Interfaces;
 using AzureTwitter.TwitterFeedHandler.Providers;
-using AzureTwitter.TwitterFeedHandler.Settings;
 using Microsoft.ServiceFabric.Services.Runtime;
 
 namespace AzureTwitter.TwitterFeedHandler
@@ -23,13 +27,13 @@ namespace AzureTwitter.TwitterFeedHandler
 				// When Service Fabric creates an instance of this service type,
 				// an instance of the class is created in this host process.
 
-				//need some sort of IoC here
-				var settings = new ServiceSettings();
-				var provider = new TweetsProvider(settings);
-				var messageBus = new RedisMessageBus.RedisMessageBus(settings.RedisHost, settings.RedisPipeName);
+			    var container = ContainerManager.BuildContainer();
 
 				ServiceRuntime.RegisterServiceAsync("TwitterFeedHandlerType",
-					context => new TwitterFeedHandler(context, provider, messageBus, settings)).GetAwaiter().GetResult();
+					context => new TwitterFeedHandler(context, 
+                        container.Resolve<ITweetsProvider>(),
+					    container.Resolve<IMessageBus>(),
+					    container.Resolve<ISettingsManager>())).GetAwaiter().GetResult();
 
 				ServiceEventSource.Current.ServiceTypeRegistered(Process.GetCurrentProcess().Id, typeof(TwitterFeedHandler).Name);
 

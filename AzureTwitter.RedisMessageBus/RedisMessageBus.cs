@@ -1,12 +1,12 @@
 ﻿using System;
-using AzureTwitter.RedisMessageBus.Interfaces;
+using AzureTwitter.MessageBus.Interfaces;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using StackExchange.Redis;
 
 namespace AzureTwitter.RedisMessageBus
 {
-	public class RedisMessageBus : IRedisMessageBus
+	public class RedisMessageBus : IMessageBus
 	{
 		private readonly ConnectionMultiplexer _connection;
 		private readonly JsonSerializerSettings _serializerSettings;
@@ -28,19 +28,19 @@ namespace AzureTwitter.RedisMessageBus
 				ContractResolver = new CamelCasePropertyNamesContractResolver()
 			};
 		}
+        
+	    public void Send<T>(T message)
+	    {
+	        _subscriber.Publish(_pipe, JsonConvert.SerializeObject(message, _serializerSettings));
+        }
 
-		public void Send(object message)
-		{
-			_subscriber.Publish(_pipe, JsonConvert.SerializeObject(message, _serializerSettings));
-		}
-
-		public void Subscribe<T>(Action<T> handler)
-		{
-			_subscriber.Subscribe(_pipe, (channel, value) =>
-			{
-				var message = JsonConvert.DeserializeObject<T>(value, _serializerSettings);
-				handler(message);
-			});
-		}
+	    public void Subscribe<T>(Action<T> onMessage)
+	    {
+	        _subscriber.Subscribe(_pipe, (channel, value) =>
+	        {
+	            var message = JsonConvert.DeserializeObject<T>(value, _serializerSettings);
+	            onMessage(message);
+	        });
+        }
 	}
 }

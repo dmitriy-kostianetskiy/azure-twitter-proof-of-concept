@@ -4,7 +4,8 @@ using System.Fabric;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using AzureTwitter.RedisMessageBus.Interfaces;
+using AzureTwitter.Configuration;
+using AzureTwitter.MessageBus.Interfaces;
 using AzureTwitter.TwitterFeedHandler.Interfaces;
 using Microsoft.ServiceFabric.Services.Communication.Runtime;
 using Microsoft.ServiceFabric.Services.Runtime;
@@ -17,18 +18,18 @@ namespace AzureTwitter.TwitterFeedHandler
 	internal sealed class TwitterFeedHandler : StatelessService
 	{
 		private readonly ITweetsProvider _provider;
-		private readonly IServiceSettings _serviceSettings;
-		private readonly IRedisMessageBus _messageBus;
+		private readonly ISettingsManager _settingsManager;
+		private readonly IMessageBus _messageBus;
 
 		public TwitterFeedHandler(StatelessServiceContext context, 
-			ITweetsProvider provider, 
-			IRedisMessageBus messageBus,
-			IServiceSettings serviceSettings)
+			ITweetsProvider provider,
+		    IMessageBus messageBus,
+			ISettingsManager settingsManager)
 			: base(context)
 		{
 			_provider = provider;
 			_messageBus = messageBus;
-			_serviceSettings = serviceSettings;
+			_settingsManager = settingsManager;
 		}
 
 		/// <summary>
@@ -49,20 +50,18 @@ namespace AzureTwitter.TwitterFeedHandler
 			while (true)
 			{
 				cancellationToken.ThrowIfCancellationRequested();
-
-				var handlers = _serviceSettings.Users.Select(user => _provider.GetLatestAsync(user)).ToList();
-
+				var handlers = _settingsManager.TwitterFeedUsers.Select(user => _provider.GetLatestAsync(user)).ToList();
 
 				await Task.WhenAll(handlers)
 					.ContinueWith((task) =>
 					{
 						foreach (var tweet in task.Result)
 						{
-							if (tweet != null)
-							{
-								ServiceEventSource.Current.ServiceMessage(Context, "{0} - {1}", tweet.Content, tweet.User);
-								_messageBus.Send(tweet);
-							}
+						    if (tweet == null)
+                                continue;
+
+						    ServiceEventSource.Current.ServiceMessage(Context, "{0} - {1}", tweet.Content, tweet.User);
+						    _messageBus.Send(tweet);
 						}
 					}, cancellationToken);
 
