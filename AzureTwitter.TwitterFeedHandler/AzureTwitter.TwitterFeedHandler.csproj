@@ -108,6 +108,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AzureTwitter.CacheService.Interfaces\AzureTwitter.CacheService.Interfaces.csproj">
+      <Project>{B3ED4996-D723-4E20-83B2-C2905ED1EC68}</Project>
+      <Name>AzureTwitter.CacheService.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AzureTwitter.CommunicationUtils\AzureTwitter.CommunicationUtils.csproj">
+      <Project>{730A92CC-A811-4D36-A11C-B0D339DE2778}</Project>
+      <Name>AzureTwitter.CommunicationUtils</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AzureTwitter.Configuration\AzureTwitter.Configuration.csproj">
       <Project>{C087A4A1-BA32-4842-A598-2CB603551075}</Project>
       <Name>AzureTwitter.Configuration</Name>
@@ -119,6 +127,10 @@
     <ProjectReference Include="..\AzureTwitter.Models\AzureTwitter.Models.csproj">
       <Project>{DCC92359-F6AF-48E8-90EC-9774E495A2DE}</Project>
       <Name>AzureTwitter.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AzureTwitter.RedisCache\AzureTwitter.RedisCache.csproj">
+      <Project>{77D64D9B-CF7B-4FB7-8CFC-3A4CDE114416}</Project>
+      <Name>AzureTwitter.RedisCache</Name>
     </ProjectReference>
     <ProjectReference Include="..\AzureTwitter.RedisMessageBus\AzureTwitter.RedisMessageBus.csproj">
       <Project>{ABE96D33-4635-47CB-A790-D4BFD7840A04}</Project>

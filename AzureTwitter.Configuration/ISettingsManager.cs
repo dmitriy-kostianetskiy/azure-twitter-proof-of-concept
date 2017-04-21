@@ -8,6 +8,9 @@ namespace AzureTwitter.Configuration
         string MessageBusConnection { get; }
         string MessageBusChannel { get; }
 
+        // Cache Service Configuration
+        string CacheServiceConnection { get; }
+
         // Twitter Feed Configuration
         string TwitterFeedConsumerKey { get; }
         string TwitterFeedConsumerSecret { get; }

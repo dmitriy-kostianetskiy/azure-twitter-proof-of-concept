@@ -11,6 +11,7 @@ namespace AzureTwitter.Configuration
     {
         public string MessageBusConnection { get; private set; }
         public string MessageBusChannel { get; private set; }
+        public string CacheServiceConnection { get; private set; }
         public string TwitterFeedConsumerKey { get; private set; }
         public string TwitterFeedConsumerSecret { get; private set; }
         public string TwitterFeedAccessToken { get; private set; }
@@ -32,6 +33,8 @@ namespace AzureTwitter.Configuration
 
             MessageBusConnection = ConfigurationManager.AppSettings["MessageBusConnection"];
             MessageBusChannel = ConfigurationManager.AppSettings["MessageBusChannel"];
+
+            CacheServiceConnection = ConfigurationManager.AppSettings["CacheServiceConnection"];
         }
     }
 }

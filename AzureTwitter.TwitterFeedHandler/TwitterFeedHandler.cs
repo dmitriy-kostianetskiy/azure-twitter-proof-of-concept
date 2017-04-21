@@ -51,7 +51,7 @@ namespace AzureTwitter.TwitterFeedHandler
 			{
 				cancellationToken.ThrowIfCancellationRequested();
 				var handlers = _settingsManager.TwitterFeedUsers.Select(user => _provider.GetLatestAsync(user)).ToList();
-
+                
 				await Task.WhenAll(handlers)
 					.ContinueWith((task) =>
 					{
