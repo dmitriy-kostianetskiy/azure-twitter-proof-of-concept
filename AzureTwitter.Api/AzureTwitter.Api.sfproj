@@ -30,6 +30,7 @@
     <ProjectReference Include="..\AzureTwitter.ApiService\AzureTwitter.ApiService.csproj" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app.config" />
     <Content Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />

@@ -39,6 +39,9 @@
     <IsServiceFabricServiceProject>True</IsServiceFabricServiceProject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=4.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.5.0\lib\net45\Autofac.dll</HintPath>
+    </Reference>
     <Reference Include="LinqToTwitter.AspNet, Version=3.2.0.30483, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\linqtotwitter.4.1.0\lib\net45\LinqToTwitter.AspNet.dll</HintPath>
     </Reference>
@@ -90,9 +93,10 @@
     <Reference Include="System.Runtime.Serialization" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dependencies\ContainerManager.cs" />
+    <Compile Include="Dependencies\TwitterFeedHandlerModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\TweetsProvider.cs" />
-    <Compile Include="Settings\ServiceSettings.cs" />
     <Compile Include="TwitterFeedHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ServiceEventSource.cs" />
@@ -104,13 +108,17 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AzureTwitter.Configuration\AzureTwitter.Configuration.csproj">
+      <Project>{C087A4A1-BA32-4842-A598-2CB603551075}</Project>
+      <Name>AzureTwitter.Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AzureTwitter.MessageBus.Interfaces\AzureTwitter.MessageBus.Interfaces.csproj">
+      <Project>{14ADCBFC-1300-4578-86B2-A9C270F7E0FC}</Project>
+      <Name>AzureTwitter.MessageBus.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AzureTwitter.Models\AzureTwitter.Models.csproj">
       <Project>{DCC92359-F6AF-48E8-90EC-9774E495A2DE}</Project>
       <Name>AzureTwitter.Models</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AzureTwitter.RedisMessageBus.Interfaces\AzureTwitter.RedisMessageBus.Interfaces.csproj">
-      <Project>{64105105-B6B1-4AE9-839D-63474B0663CB}</Project>
-      <Name>AzureTwitter.RedisMessageBus.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\AzureTwitter.RedisMessageBus\AzureTwitter.RedisMessageBus.csproj">
       <Project>{ABE96D33-4635-47CB-A790-D4BFD7840A04}</Project>
@@ -121,6 +129,7 @@
       <Name>AzureTwitter.TwitterFeedHandler.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

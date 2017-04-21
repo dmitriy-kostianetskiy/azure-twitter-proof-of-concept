@@ -1,6 +1,7 @@
 ﻿using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
+using AzureTwitter.Configuration;
 using AzureTwitter.Models;
 using AzureTwitter.TwitterFeedHandler.Interfaces;
 using LinqToTwitter;
@@ -11,16 +12,16 @@ namespace AzureTwitter.TwitterFeedHandler.Providers
 	{
 		private readonly TwitterContext _context;
 
-		public TweetsProvider(IServiceSettings settings)
+		public TweetsProvider(ISettingsManager settings)
 		{
 			var auth = new SingleUserAuthorizer
 			{
 				CredentialStore = new SingleUserInMemoryCredentialStore
 				{
-					ConsumerKey = settings.ConsumerKey,
-					ConsumerSecret = settings.ConsumerSecret,
-					AccessToken = settings.AccessToken,
-					AccessTokenSecret = settings.AccessTokenSecret
+					ConsumerKey = settings.TwitterFeedConsumerKey,
+					ConsumerSecret = settings.TwitterFeedConsumerSecret,
+					AccessToken = settings.TwitterFeedAccessToken,
+					AccessTokenSecret = settings.TwitterFeedAccessTokenSecret
 				}
 			};
 
@@ -43,7 +44,7 @@ namespace AzureTwitter.TwitterFeedHandler.Providers
 				Id = tweet.ID.ToString(CultureInfo.InvariantCulture),
 				User = tweet.User.Name,
 				Content = tweet.Text,
-				CreatedAt = tweet.CreatedAt
+				Created = tweet.CreatedAt
 			};
 		}
 	}

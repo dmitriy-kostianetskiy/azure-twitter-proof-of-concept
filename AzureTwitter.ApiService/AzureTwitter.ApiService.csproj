@@ -129,7 +129,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\TweetsController.cs" />
-    <Compile Include="Dependencies\ContainerProvider.cs" />
+    <Compile Include="Dependencies\ApiServiceModule.cs" />
+    <Compile Include="Dependencies\ContainerManager.cs" />
     <Compile Include="Hubs\TweetHub.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="OwinCommunicationListener.cs" />
@@ -147,6 +148,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AzureTwitter.Configuration\AzureTwitter.Configuration.csproj">
+      <Project>{C087A4A1-BA32-4842-A598-2CB603551075}</Project>
+      <Name>AzureTwitter.Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AzureTwitter.MessageBus.Interfaces\AzureTwitter.MessageBus.Interfaces.csproj">
+      <Project>{14ADCBFC-1300-4578-86B2-A9C270F7E0FC}</Project>
+      <Name>AzureTwitter.MessageBus.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AzureTwitter.Models\AzureTwitter.Models.csproj">
       <Project>{DCC92359-F6AF-48E8-90EC-9774E495A2DE}</Project>
       <Name>AzureTwitter.Models</Name>
