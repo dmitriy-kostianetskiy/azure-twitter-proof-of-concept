@@ -1,0 +1,10 @@
+[
+  "@angular/core",
+  "@angular/platform-browser",
+  "@angular/router",
+  "@angular/http",
+  "@angular/platform-browser-dynamic",
+  "@angular/material",
+
+  "@angular/material/prebuilt-themes/pink-bluegrey.css"
+]
