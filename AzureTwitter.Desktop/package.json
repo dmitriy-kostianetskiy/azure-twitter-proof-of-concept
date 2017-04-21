@@ -1,0 +1,57 @@
+{
+  "name": "azure-twitter-desktop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "build:dev": "set NODE_ENV=development&& webpack -p",
+    "build:prod": "set NODE_ENV=production&& webpack",
+    "build:dev:watch": "set NODE_ENV=development&& webpack --watch",
+    "build:prod:watch": "set NODE_ENV=production&& webpack -p --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/redrick-tmn/azure-twitter-proof-of-concept.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/redrick-tmn/azure-twitter-proof-of-concept/issues"
+  },
+  "homepage": "https://github.com/redrick-tmn/azure-twitter-proof-of-concept#readme",
+  "devDependencies": {
+    "devtron": "^1.4.0",
+    "electron": "^1.6.5",
+    "@types/core-js": "^0.9.35",
+    "@types/node": "^7.0.12",
+    "angular2-template-loader": "^0.6.2",
+    "awesome-typescript-loader": "^3.1.2",
+    "css-loader": "^0.28.0",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "file-loader": "^0.11.1",
+    "node-sass": "^4.5.2",
+    "raw-loader": "^0.5.1",
+    "resolve-url-loader": "^2.0.2",
+    "sass-loader": "^6.0.3",
+    "style-loader": "^0.16.1",
+    "typescript": "^2.2.2",
+    "webpack": "^2.3.3",
+    "webpack-dev-server": "^2.4.2",
+    "webpack-merge": "^4.1.0"
+  },
+  "dependencies": {
+    "@angular/animations": "^4.0.2",
+    "@angular/common": "^4.0.0",
+    "@angular/compiler": "^4.0.0",
+    "@angular/core": "^4.0.0",
+    "@angular/forms": "^4.0.0",
+    "@angular/http": "^4.0.0",
+    "@angular/material": "^2.0.0-beta.3",
+    "@angular/platform-browser": "^4.0.0",
+    "@angular/platform-browser-dynamic": "^4.0.0",
+    "@angular/router": "^4.0.2",
+    "core-js": "^2.4.1",
+    "rxjs": "^5.3.0",
+    "zone.js": "^0.8.5"
+  }
+}
