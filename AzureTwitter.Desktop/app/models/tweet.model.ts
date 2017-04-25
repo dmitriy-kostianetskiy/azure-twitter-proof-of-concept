@@ -2,5 +2,5 @@
 	id: string;
 	user: string;
 	content: string;
-	createdAt: Date;
+	created: Date;
 };

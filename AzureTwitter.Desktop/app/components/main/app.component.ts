@@ -26,8 +26,8 @@ export default class AppComponent {
 			} else {
 				const oldTweet = this.tweetsByUser.get(tweet.user);
 
-				const oldDate = new Date(oldTweet.createdAt);
-				const newDate = new Date(tweet.createdAt);
+				const oldDate = new Date(oldTweet.created);
+				const newDate = new Date(tweet.created);
 
 				if (oldDate.getTime() < newDate.getTime()) {
 					isUpdated = true;

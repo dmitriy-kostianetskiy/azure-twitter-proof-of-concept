@@ -43,6 +43,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configuration", "Configurat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureTwitter.Configuration", "AzureTwitter.Configuration\AzureTwitter.Configuration.csproj", "{C087A4A1-BA32-4842-A598-2CB603551075}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureTwitter.Storage.Model", "AzureTwitter.Storage.Model\AzureTwitter.Storage.Model.csproj", "{40998B31-0FC4-41F0-8D89-42D18506BF7C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -143,6 +145,14 @@ Global
 		{C087A4A1-BA32-4842-A598-2CB603551075}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C087A4A1-BA32-4842-A598-2CB603551075}.Release|x64.ActiveCfg = Release|Any CPU
 		{C087A4A1-BA32-4842-A598-2CB603551075}.Release|x64.Build.0 = Release|Any CPU
+		{40998B31-0FC4-41F0-8D89-42D18506BF7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40998B31-0FC4-41F0-8D89-42D18506BF7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40998B31-0FC4-41F0-8D89-42D18506BF7C}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{40998B31-0FC4-41F0-8D89-42D18506BF7C}.Debug|x64.Build.0 = Debug|Any CPU
+		{40998B31-0FC4-41F0-8D89-42D18506BF7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40998B31-0FC4-41F0-8D89-42D18506BF7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40998B31-0FC4-41F0-8D89-42D18506BF7C}.Release|x64.ActiveCfg = Release|Any CPU
+		{40998B31-0FC4-41F0-8D89-42D18506BF7C}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -163,5 +173,6 @@ Global
 		{14ADCBFC-1300-4578-86B2-A9C270F7E0FC} = {6828CD0A-23AB-43FD-9D67-77744C7A7F6C}
 		{1F07A80D-AA34-4D76-A141-B52979C4E407} = {99BC3AAC-401F-4D4C-A4B8-F384170C57A5}
 		{C087A4A1-BA32-4842-A598-2CB603551075} = {1F07A80D-AA34-4D76-A141-B52979C4E407}
+		{40998B31-0FC4-41F0-8D89-42D18506BF7C} = {5331CBE0-8058-48A2-A947-9897D85E85C6}
 	EndGlobalSection
 EndGlobal
