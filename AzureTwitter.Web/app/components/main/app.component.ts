@@ -9,37 +9,22 @@ import Tweet from '../../models/tweet.model'
 	templateUrl: './app.component.html'
 })
 export default class AppComponent {
-
-	private tweetsByUser = new Map<string, Tweet>();
-	private tweets: Tweet[] = [];
+	
+	private lastTweet: Tweet;
+	private updated: boolean = false;
 
 	constructor(private tweetService: TweetService, private tweetHub: TweetHub, private zone: NgZone) { }
 
 	ngOnInit() {
 		this.tweetHub.newTweet.subscribe((tweet: Tweet) => {
+			this.zone.run(() => {
+				this.lastTweet = tweet;
 
-			let isUpdated = false;
-
-			if (!this.tweetsByUser.has(tweet.user)) {
-				isUpdated = true;
-				this.tweetsByUser.set(tweet.user, tweet);
-			} else {
-				const oldTweet = this.tweetsByUser.get(tweet.user);
-
-				const oldDate = new Date(oldTweet.created);
-				const newDate = new Date(tweet.created);
-
-				if (oldDate.getTime() < newDate.getTime()) {
-					isUpdated = true;
-					this.tweetsByUser.set(tweet.user, tweet);
-				}
-			}
-
-			if (isUpdated) {
-				this.zone.run(() => {
-					this.tweets = Array.from(this.tweetsByUser.values());
-				});
-			}
+				this.updated = true;
+				setTimeout(() => {
+					this.updated = false;
+				}, 100);
+			});
 		});
 	}
 }

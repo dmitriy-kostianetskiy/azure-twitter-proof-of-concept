@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Fabric;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using AzureTwitter.Configuration;
 using AzureTwitter.MessageBus.Interfaces;
 using AzureTwitter.TwitterFeedHandler.Interfaces;
 using Microsoft.ServiceFabric.Services.Communication.Runtime;
@@ -18,18 +15,15 @@ namespace AzureTwitter.TwitterFeedHandler
 	internal sealed class TwitterFeedHandler : StatelessService
 	{
 		private readonly ITweetsProvider _provider;
-		private readonly ISettingsManager _settingsManager;
 		private readonly IMessageBus _messageBus;
 
 		public TwitterFeedHandler(StatelessServiceContext context, 
 			ITweetsProvider provider,
-		    IMessageBus messageBus,
-			ISettingsManager settingsManager)
+		    IMessageBus messageBus)
 			: base(context)
 		{
 			_provider = provider;
 			_messageBus = messageBus;
-			_settingsManager = settingsManager;
 		}
 
 		/// <summary>
@@ -50,22 +44,11 @@ namespace AzureTwitter.TwitterFeedHandler
 			while (true)
 			{
 				cancellationToken.ThrowIfCancellationRequested();
-				var handlers = _settingsManager.TwitterFeedUsers.Select(user => _provider.GetLatestAsync(user)).ToList();
+				await _provider.Subscribe(tweet =>
+				{
+					_messageBus.Send(tweet);
 
-				await Task.WhenAll(handlers)
-					.ContinueWith((task) =>
-					{
-						foreach (var tweet in task.Result)
-						{
-						    if (tweet == null)
-                                continue;
-
-						    ServiceEventSource.Current.ServiceMessage(Context, "{0} - {1}", tweet.Content, tweet.User);
-						    _messageBus.Send(tweet);
-						}
-					}, cancellationToken);
-
-				await Task.Delay(TimeSpan.FromSeconds(5), cancellationToken);
+				}, cancellationToken);
 			}
 		}
 	}

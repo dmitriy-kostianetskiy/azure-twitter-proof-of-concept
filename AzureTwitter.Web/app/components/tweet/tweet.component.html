@@ -1,4 +1,4 @@
-﻿<md-card class="tweet-card">
+﻿<md-card class="tweet-card" [@contentUpdated]="tweet">
 	<md-card-title>{{tweet.user}}</md-card-title>
 	<md-card-subtitle>{{tweet.created | date: 'short'}}</md-card-subtitle>
 	<md-card-content>{{tweet.content}}</md-card-content>

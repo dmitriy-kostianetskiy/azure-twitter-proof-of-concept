@@ -32,8 +32,7 @@ namespace AzureTwitter.TwitterFeedHandler
 				ServiceRuntime.RegisterServiceAsync("TwitterFeedHandlerType",
 					context => new TwitterFeedHandler(context, 
                         container.Resolve<ITweetsProvider>(),
-					    container.Resolve<IMessageBus>(),
-					    container.Resolve<ISettingsManager>())).GetAwaiter().GetResult();
+					    container.Resolve<IMessageBus>())).GetAwaiter().GetResult();
 
 				ServiceEventSource.Current.ServiceTypeRegistered(Process.GetCurrentProcess().Id, typeof(TwitterFeedHandler).Name);
 

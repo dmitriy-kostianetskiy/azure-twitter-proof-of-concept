@@ -1,5 +1,8 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using AzureTwitter.Configuration;
 using AzureTwitter.Models;
@@ -28,24 +31,40 @@ namespace AzureTwitter.TwitterFeedHandler.Providers
 			_context = new TwitterContext(auth);
 		}
 
-		public async Task<TweetModel> GetLatestAsync(string userName)
+		public Task Subscribe(Action<TweetModel> handler, CancellationToken cancellationToken)
 		{
-			var query = _context.Status
-				.Where(x => x.Type == StatusType.User && x.ScreenName == userName && x.Count == 1);
+			var query = _context.Streaming.Where(x => x.Type == StreamingType.User)
+				.StartAsync(async stream =>
+				{
+					await Task.Run(() =>
+					{
+						if (cancellationToken.IsCancellationRequested)
+						{
+							stream.CloseStream();
+							return;
+						}
 
-			var tweet = await query.SingleOrDefaultAsync();
-			if (tweet == null)
-			{
-				return null;
-			}
+						if (stream.EntityType != StreamEntityType.Status)
+							return;
 
-			return new TweetModel
-			{
-				Id = tweet.ID.ToString(CultureInfo.InvariantCulture),
-				User = tweet.User.Name,
-				Content = tweet.Text,
-				Created = tweet.CreatedAt
-			};
+						var tweet = stream.Entity as Status;
+						if (tweet != null)
+						{
+							var tweetModel = new TweetModel
+							{
+								Id = tweet.ID.ToString(CultureInfo.InvariantCulture),
+								User = tweet.User.Name,
+								Content = tweet.Text,
+								Created = tweet.CreatedAt
+							};
+
+							handler(tweetModel);
+						}
+
+					}, cancellationToken);
+				});
+
+			return query;
 		}
 	}
 }

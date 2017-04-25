@@ -1,10 +1,12 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading;
+using System.Threading.Tasks;
 using AzureTwitter.Models;
 
 namespace AzureTwitter.TwitterFeedHandler.Interfaces
 {
 	public interface ITweetsProvider
 	{
-		Task<TweetModel> GetLatestAsync(string userName);
+		Task Subscribe(Action<TweetModel> handler, CancellationToken cancellationToken);
 	}
 }

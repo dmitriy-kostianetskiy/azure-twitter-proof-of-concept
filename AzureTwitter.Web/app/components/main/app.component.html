@@ -1,6 +1,15 @@
 ﻿<md-toolbar color="primary">
 Twitter Azure App
 </md-toolbar>
-<tweet *ngFor="let tweet of tweets" [tweet]="tweet"></tweet>
+
+<md-tab-group>
+	<md-tab label="Fast Path">
+		<tweet *ngIf="lastTweet" [tweet]="lastTweet"></tweet>
+	</md-tab>
+	<md-tab label="Cache"></md-tab>
+</md-tab-group>
+
+
+
 
 
